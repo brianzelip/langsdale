@@ -47,6 +47,10 @@ html(lang="en")
     - const colFlexSections = colFloatSections
 
     header.container.p2#top
+      h1 UB Langsdale 
+        a(href="http://langsdale.ubalt.edu/find-materials/") Find Materials 
+        .
+          refactoring
       p.h2 Contents:
       ol
         each section in sectionIDs
@@ -79,16 +83,16 @@ html(lang="en")
         .row-float-column__text-container {
           overflow: hidden;
           /* this overflow:hidden parent makes the
-             .row-float-column__text-container--text
+             .row-float-column__text
              NOT wrap underneath .row-float-column__img,
              but instead, stay within .row-float-column__text-container.
              If you remove this style, then make a narrow browser,
-             you'll see that any .row-float-column__text-container--text
+             you'll see that any .row-float-column__text
              with long enough text will start to wrap
              underneath its corresponding .row-float-column__img
            */
         }
-        .row-float-column__text-container--title {
+        .row-float-column__title {
           margin-top: 0;
         }
       div
@@ -98,9 +102,9 @@ html(lang="en")
               .row-float-column.clearfix
                 img.row-float-column__img(src=section.img width=100)
                 .row-float-column__text-container
-                  h2.row-float-column__text-container--title
+                  h2.row-float-column__title
                     != section.title
-                  p.row-float-column__text-container--text= section.text
+                  p.row-float-column__text= section.text
     hr
     section.vh100.container.px2.mb3#colFloatTitle
       nav.flex.mt3.mb3.flex-center
@@ -133,7 +137,7 @@ html(lang="en")
             .row-float-column__text-container
           */
         }
-        .col-float-column-row__text-container--title {
+        .col-float-column-row__title {
           margin-top: 0;
         }
       .col-float-row.clearfix
@@ -143,33 +147,65 @@ html(lang="en")
               .col-float-column-row.clearfix
                 img.col-float-column-row__img(src=section.img width=100)
                 .col-float-column-row__text-container
-                  h2.col-float-column-row__text-container--title
+                  h2.col-float-column-row__title
                     != section.title
-                  p.col-float-column-row__text-container--text= section.text
+                  p.col-float-column-row__text= section.text
     hr
     section.vh100.container.px2.mb3#rowFlexTitle
       nav.flex.mt3.mb3.flex-center
         h1.h2.mt0.mb0.mr3.italic.regular= rowFlexTitle
         a.h1(href="#top")
           span.rotate270.inline-block ➜
-      .sm-flex.flex-wrap.mxn2
+      style.
+        .row-flex-container {
+          flex-wrap: wrap;
+          margin: 0 -1rem; /* "grid gutters" trick */
+        }
+        @media (min-width: 40em) {
+          .row-flex-container {
+            display: flex;
+          }
+        }
+        .row-flex-item {
+          display: flex;
+          margin-bottom: 1rem;
+          padding: 0 1rem; /* "grid gutters" trick */
+        }
+        @media (min-width: 40em) {
+          .row-flex-item {
+            width: 50%;
+          }
+        }
+        .row-flex-item__img-container {
+          flex: 0 0 100px; /* shorthand that uses
+                              flex-basis to keep the image at 100px */
+          margin-right: 1rem;
+        }
+        .row-flex-item__text-container {
+          display: flex;
+          flex-direction: column;
+        }
+        .row-flex-item__title {
+          margin-top: 0;
+        }
+      .row-flex-container
         each section in rowFlexSections
-          .sm-col-6.mb2.flex.px2
-            .basis-100px.mr2
-              img(src=section.img)
-            div.flex.flex-column
-              h2.mt0
+          .row-flex-item
+            .row-flex-item__img-container
+              img.row-flex-item__img(src=section.img)
+            .row-flex-item__text-container
+              h2.row-flex-item__title
                 != section.title
-              p= section.text
+              p.row-flex-item__text= section.text
     hr
     section.vh100.container.px2#colFlexTitle
-      nav.flex.mt3.mb3.flex-center
+      nav.flex.flex-center.mt3.mb3
         h1.h2.mt0.mb0.mr3.italic.regular= colFlexTitle
         a.h1(href="#top")
           span.rotate270.inline-block ➜
       .sm-flex.flex-wrap.mxn2
         each array in colFlexSections
-          .sm-col-6.flex.flex-column.px2
+          .flex.flex-column.sm-col-6.px2
             each section in array
               .flex.mb2
                 .basis-100px.mr2
