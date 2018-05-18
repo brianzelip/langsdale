@@ -72,6 +72,6 @@ Here are some resources that I used when writing these solutions:
 
 * https://www.sitepoint.com/clearing-floats-overview-different-clearfix-methods/
 * https://stackoverflow.com/questions/27292942/2x2-grid-in-flexbox-with-fixed-width-column
-* http://basscss.com/v7/docs/grid/#breakpoint-based-floats -- the docs that helped me avoid the tile item text wrapping underneath the floated left image when the text was long enough to do so
+* http://basscss.com/v7/docs/grid/#breakpoint-based-floats -- the docs that helped me leverage `overflow: hidden` to avoid the tile item text wrapping underneath the floated left image when the text was long enough to do so
 * https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis
 * http://reflexgrid.com/docs/#basic-example
