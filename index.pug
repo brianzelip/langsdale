@@ -52,10 +52,13 @@ html(lang="en")
         .
           refactoring
       p.h2 Contents:
-      ol
-        each section in sectionIDs
-          li.h3
-            a.regular(href=`#${section.id}`)= section.title
+      nav
+        ol
+          each section in sectionIDs
+            li.h3
+              a.regular(href=`#${section.id}`)= section.title
+        p.h3 See the source code on 
+          a(href="https://github.com/brianzelip/langsdale") GitHub
     hr
     section.vh100.container.px2.mb3#rowFloatTitle
       nav.flex.mt3.mb3.flex-center
