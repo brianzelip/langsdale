@@ -14,6 +14,14 @@ html(lang="en")
       .vh100 {
         min-height: 100vh;
       }
+      .clearfix:after,
+      .clearfix:before {
+        content:" ";
+        display:table;
+      }
+      .clearfix:after {
+        clear:both;
+      }
       .basis-100px {
         flex: 0 0 100px;
       }
@@ -50,32 +58,94 @@ html(lang="en")
         h1.h2.mt0.mb0.mr3.italic.regular= rowFloatTitle
         a.h1(href="#top")
           span.rotate270.inline-block ➜
+      style.
+        .row-float-row {
+          margin: 0 -1rem; /* "grid gutters" trick */
+        }
+        .row-float-column {
+          margin-bottom: 1rem;
+          padding: 0 1rem; /* "grid gutters" trick */
+        }
+        @media (min-width: 40em) {
+          .row-float-column {
+            float: left;
+            width: 50%;
+          }
+        }
+        .row-float-column__img {
+          float: left;
+          margin-right: 1rem;
+        }
+        .row-float-column__text-container {
+          overflow: hidden;
+          /* this overflow:hidden parent makes the
+             .row-float-column__text-container--text
+             NOT wrap underneath .row-float-column__img,
+             but instead, stay within .row-float-column__text-container.
+             If you remove this style, then make a narrow browser,
+             you'll see that any .row-float-column__text-container--text
+             with long enough text will start to wrap
+             underneath its corresponding .row-float-column__img
+           */
+        }
+        .row-float-column__text-container--title {
+          margin-top: 0;
+        }
       div
         each array in rowFloatSections
-          .clearfix.mxn2
+          .row-float-row.clearfix
             each section in array
-              .sm-col.sm-col-6.px2.mb2.clearfix
-                img.col.mr2(src=section.img width=100)
-                .overflow-hidden
-                  h2.mt0
+              .row-float-column.clearfix
+                img.row-float-column__img(src=section.img width=100)
+                .row-float-column__text-container
+                  h2.row-float-column__text-container--title
                     != section.title
-                  p= section.text
+                  p.row-float-column__text-container--text= section.text
     hr
     section.vh100.container.px2.mb3#colFloatTitle
       nav.flex.mt3.mb3.flex-center
         h1.h2.mt0.mb0.mr3.italic.regular= colFloatTitle
         a.h1(href="#top")
           span.rotate270.inline-block ➜
-      .clearfix.mxn2    
+      style.
+        .col-float-row {
+          margin: 0 -1rem; /* "grid gutters" trick */
+        }
+        .col-float-column {
+          padding: 0 1rem; /* "grid gutters" trick */
+        }
+        @media (min-width: 40em) {
+          .col-float-column {
+            float: left;
+            width: 50%;
+          }
+        }
+        .col-float-column-row {
+          margin-bottom: 1rem;
+        }
+        .col-float-column-row__img {
+          float: left;
+          margin-right: 1rem;
+        }
+        .col-float-column-row__text-container {
+          overflow: hidden;
+          /* see comment about this above in
+            .row-float-column__text-container
+          */
+        }
+        .col-float-column-row__text-container--title {
+          margin-top: 0;
+        }
+      .col-float-row.clearfix
         each array in colFloatSections
-          .sm-col.sm-col-6.px2
+          .col-float-column.px2
             each section in array
-              div.clearfix.mb2
-                img.col.mr2(src=section.img width=100)
-                .overflow-hidden
-                  h2.mt0
+              .col-float-column-row.clearfix
+                img.col-float-column-row__img(src=section.img width=100)
+                .col-float-column-row__text-container
+                  h2.col-float-column-row__text-container--title
                     != section.title
-                  p= section.text
+                  p.col-float-column-row__text-container--text= section.text
     hr
     section.vh100.container.px2.mb3#rowFlexTitle
       nav.flex.mt3.mb3.flex-center

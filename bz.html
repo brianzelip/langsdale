@@ -14,6 +14,14 @@
       .vh100 {
         min-height: 100vh;
       }
+      .clearfix:after,
+      .clearfix:before {
+        content:" ";
+        display:table;
+      }
+      .clearfix:after {
+        clear:both;
+      }
       .basis-100px {
         flex: 0 0 100px;
       }
@@ -37,52 +45,86 @@
       <nav class="flex mt3 mb3 flex-center">
         <h1 class="h2 mt0 mb0 mr3 italic regular">Row-based float method</h1><a class="h1" href="#top"><span class="rotate270 inline-block">➜</span></a>
       </nav>
+      <style>
+        .row-float-row {
+          margin: 0 -1rem; /* "grid gutters" trick */
+        }
+        .row-float-column {
+          margin-bottom: 1rem;
+          padding: 0 1rem; /* "grid gutters" trick */
+        }
+        @media (min-width: 40em) {
+          .row-float-column {
+            float: left;
+            width: 50%;
+          }
+        }
+        .row-float-column__img {
+          float: left;
+          margin-right: 1rem;
+        }
+        .row-float-column__text-container {
+          overflow: hidden;
+          /* this overflow:hidden parent makes the
+             .row-float-column__text-container--text
+             NOT wrap underneath .row-float-column__img,
+             but instead, stay within .row-float-column__text-container.
+             If you remove this style, then make a narrow browser,
+             you'll see that any .row-float-column__text-container--text
+             with long enough text will start to wrap
+             underneath its corresponding .row-float-column__img
+           */
+        }
+        .row-float-column__text-container--title {
+          margin-top: 0;
+        }
+      </style>
       <div>
-        <div class="clearfix mxn2">
-          <div class="sm-col sm-col-6 px2 mb2 clearfix"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/books.png" width="100">
-            <div class="overflow-hidden">
-              <h2 class="mt0">Books
+        <div class="row-float-row clearfix">
+          <div class="row-float-column clearfix"><img class="row-float-column__img" src="http://langsdale.ubalt.edu/find-materials/uploads/images/books.png" width="100">
+            <div class="row-float-column__text-container">
+              <h2 class="row-float-column__text-container--title">Books
               </h2>
-              <p>Find books available at UB, or request books available at other USMAI schools.</p>
+              <p class="row-float-column__text-container--text">Find books available at UB, or request books available at other USMAI schools.</p>
             </div>
           </div>
-          <div class="sm-col sm-col-6 px2 mb2 clearfix"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/databases.png" width="100">
-            <div class="overflow-hidden">
-              <h2 class="mt0">Databases
+          <div class="row-float-column clearfix"><img class="row-float-column__img" src="http://langsdale.ubalt.edu/find-materials/uploads/images/databases.png" width="100">
+            <div class="row-float-column__text-container">
+              <h2 class="row-float-column__text-container--title">Databases
               </h2>
-              <p>Need to find scholarly, peer-reviewed articles?</p>
-            </div>
-          </div>
-        </div>
-        <div class="clearfix mxn2">
-          <div class="sm-col sm-col-6 px2 mb2 clearfix"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/journals.png" width="100">
-            <div class="overflow-hidden">
-              <h2 class="mt0">Journals
-              </h2>
-              <p>Wondering if we have access to a specific journal (ex. New England Journal of Medicine)? Find out here.</p>
-            </div>
-          </div>
-          <div class="sm-col sm-col-6 px2 mb2 clearfix"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/reserves.png" width="100">
-            <div class="overflow-hidden">
-              <h2 class="mt0">Course Reserves
-              </h2>
-              <p>Access course textbooks available at Langsdale Library.</p>
+              <p class="row-float-column__text-container--text">Need to find scholarly, peer-reviewed articles?</p>
             </div>
           </div>
         </div>
-        <div class="clearfix mxn2">
-          <div class="sm-col sm-col-6 px2 mb2 clearfix"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/ill.png" width="100">
-            <div class="overflow-hidden">
-              <h2 class="mt0">Inter Library Loan
+        <div class="row-float-row clearfix">
+          <div class="row-float-column clearfix"><img class="row-float-column__img" src="http://langsdale.ubalt.edu/find-materials/uploads/images/journals.png" width="100">
+            <div class="row-float-column__text-container">
+              <h2 class="row-float-column__text-container--title">Journals
               </h2>
-              <p>Request books/articles from other libraries, or renew items you've borrowed.</p>
+              <p class="row-float-column__text-container--text">Wondering if we have access to a specific journal (ex. New England Journal of Medicine)? Find out here.</p>
             </div>
           </div>
-          <div class="sm-col sm-col-6 px2 mb2 clearfix"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/knowledge-works.png" width="100">
-            <div class="overflow-hidden">
-              <h2 class="mt0">Knowledge<wbr>Works<wbr>@UB
+          <div class="row-float-column clearfix"><img class="row-float-column__img" src="http://langsdale.ubalt.edu/find-materials/uploads/images/reserves.png" width="100">
+            <div class="row-float-column__text-container">
+              <h2 class="row-float-column__text-container--title">Course Reserves
               </h2>
-              <p>Discover research and publications from UB faculty and graduate students.</p>
+              <p class="row-float-column__text-container--text">Access course textbooks available at Langsdale Library.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row-float-row clearfix">
+          <div class="row-float-column clearfix"><img class="row-float-column__img" src="http://langsdale.ubalt.edu/find-materials/uploads/images/ill.png" width="100">
+            <div class="row-float-column__text-container">
+              <h2 class="row-float-column__text-container--title">Inter Library Loan
+              </h2>
+              <p class="row-float-column__text-container--text">Request books/articles from other libraries, or renew items you've borrowed.</p>
+            </div>
+          </div>
+          <div class="row-float-column clearfix"><img class="row-float-column__img" src="http://langsdale.ubalt.edu/find-materials/uploads/images/knowledge-works.png" width="100">
+            <div class="row-float-column__text-container">
+              <h2 class="row-float-column__text-container--title">Knowledge<wbr>Works<wbr>@UB
+              </h2>
+              <p class="row-float-column__text-container--text">Discover research and publications from UB faculty and graduate students.</p>
             </div>
           </div>
         </div>
@@ -93,50 +135,80 @@
       <nav class="flex mt3 mb3 flex-center">
         <h1 class="h2 mt0 mb0 mr3 italic regular">Column-based float method</h1><a class="h1" href="#top"><span class="rotate270 inline-block">➜</span></a>
       </nav>
-      <div class="clearfix mxn2">   
-        <div class="sm-col sm-col-6 px2">
-          <div class="clearfix mb2"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/books.png" width="100">
-            <div class="overflow-hidden">
-              <h2 class="mt0">Books
+      <style>
+        .col-float-row {
+          margin: 0 -1rem; /* "grid gutters" trick */
+        }
+        .col-float-column {
+          padding: 0 1rem; /* "grid gutters" trick */
+        }
+        @media (min-width: 40em) {
+          .col-float-column {
+            float: left;
+            width: 50%;
+          }
+        }
+        .col-float-column-row {
+          margin-bottom: 1rem;
+        }
+        .col-float-column-row__img {
+          float: left;
+          margin-right: 1rem;
+        }
+        .col-float-column-row__text-container {
+          overflow: hidden;
+          /* see comment about this above in
+            .row-float-column__text-container
+          */
+        }
+        .col-float-column-row__text-container--title {
+          margin-top: 0;
+        }
+      </style>
+      <div class="col-float-row clearfix">
+        <div class="col-float-column px2">
+          <div class="col-float-column-row clearfix"><img class="col-float-column-row__img" src="http://langsdale.ubalt.edu/find-materials/uploads/images/books.png" width="100">
+            <div class="col-float-column-row__text-container">
+              <h2 class="col-float-column-row__text-container--title">Books
               </h2>
-              <p>Find books available at UB, or request books available at other USMAI schools.</p>
+              <p class="col-float-column-row__text-container--text">Find books available at UB, or request books available at other USMAI schools.</p>
             </div>
           </div>
-          <div class="clearfix mb2"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/journals.png" width="100">
-            <div class="overflow-hidden">
-              <h2 class="mt0">Journals
+          <div class="col-float-column-row clearfix"><img class="col-float-column-row__img" src="http://langsdale.ubalt.edu/find-materials/uploads/images/journals.png" width="100">
+            <div class="col-float-column-row__text-container">
+              <h2 class="col-float-column-row__text-container--title">Journals
               </h2>
-              <p>Wondering if we have access to a specific journal (ex. New England Journal of Medicine)? Find out here.</p>
+              <p class="col-float-column-row__text-container--text">Wondering if we have access to a specific journal (ex. New England Journal of Medicine)? Find out here.</p>
             </div>
           </div>
-          <div class="clearfix mb2"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/ill.png" width="100">
-            <div class="overflow-hidden">
-              <h2 class="mt0">Inter Library Loan
+          <div class="col-float-column-row clearfix"><img class="col-float-column-row__img" src="http://langsdale.ubalt.edu/find-materials/uploads/images/ill.png" width="100">
+            <div class="col-float-column-row__text-container">
+              <h2 class="col-float-column-row__text-container--title">Inter Library Loan
               </h2>
-              <p>Request books/articles from other libraries, or renew items you've borrowed.</p>
+              <p class="col-float-column-row__text-container--text">Request books/articles from other libraries, or renew items you've borrowed.</p>
             </div>
           </div>
         </div>
-        <div class="sm-col sm-col-6 px2">
-          <div class="clearfix mb2"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/databases.png" width="100">
-            <div class="overflow-hidden">
-              <h2 class="mt0">Databases
+        <div class="col-float-column px2">
+          <div class="col-float-column-row clearfix"><img class="col-float-column-row__img" src="http://langsdale.ubalt.edu/find-materials/uploads/images/databases.png" width="100">
+            <div class="col-float-column-row__text-container">
+              <h2 class="col-float-column-row__text-container--title">Databases
               </h2>
-              <p>Need to find scholarly, peer-reviewed articles?</p>
+              <p class="col-float-column-row__text-container--text">Need to find scholarly, peer-reviewed articles?</p>
             </div>
           </div>
-          <div class="clearfix mb2"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/reserves.png" width="100">
-            <div class="overflow-hidden">
-              <h2 class="mt0">Course Reserves
+          <div class="col-float-column-row clearfix"><img class="col-float-column-row__img" src="http://langsdale.ubalt.edu/find-materials/uploads/images/reserves.png" width="100">
+            <div class="col-float-column-row__text-container">
+              <h2 class="col-float-column-row__text-container--title">Course Reserves
               </h2>
-              <p>Access course textbooks available at Langsdale Library.</p>
+              <p class="col-float-column-row__text-container--text">Access course textbooks available at Langsdale Library.</p>
             </div>
           </div>
-          <div class="clearfix mb2"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/knowledge-works.png" width="100">
-            <div class="overflow-hidden">
-              <h2 class="mt0">Knowledge<wbr>Works<wbr>@UB
+          <div class="col-float-column-row clearfix"><img class="col-float-column-row__img" src="http://langsdale.ubalt.edu/find-materials/uploads/images/knowledge-works.png" width="100">
+            <div class="col-float-column-row__text-container">
+              <h2 class="col-float-column-row__text-container--title">Knowledge<wbr>Works<wbr>@UB
               </h2>
-              <p>Discover research and publications from UB faculty and graduate students.</p>
+              <p class="col-float-column-row__text-container--text">Discover research and publications from UB faculty and graduate students.</p>
             </div>
           </div>
         </div>
