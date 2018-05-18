@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Refactoring UB Langsdale Find Materials tiles</title>
+    <link rel="stylesheet" href="https://npmcdn.com/basscss@7.1.1/css/basscss.min.css">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body,
+      .vh100 {
+        min-height: 100vh;
+      }
+      .basis-100px {
+        flex: 0 0 100px;
+      }
+      .rotate270 {
+        transform: rotate(270deg);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="container p2" id="top">
+      <p class="h2">Contents:</p>
+      <ol>
+        <li class="h3"><a class="regular" href="#rowFloatTitle">Row-based float method</a></li>
+        <li class="h3"><a class="regular" href="#colFloatTitle">Column-based float method</a></li>
+        <li class="h3"><a class="regular" href="#rowFlexTitle">Row-based flexbox method</a></li>
+        <li class="h3"><a class="regular" href="#colFlexTitle">Column-based flexbox method</a></li>
+      </ol>
+    </header>
+    <hr>
+    <section class="vh100 container px2 mb3" id="rowFloatTitle">
+      <nav class="flex mt3 mb3 flex-center">
+        <h1 class="h2 mt0 mb0 mr3 italic regular">Row-based float method</h1><a class="h1" href="#top"><span class="rotate270 inline-block">➜</span></a>
+      </nav>
+      <div>
+        <div class="clearfix mxn2">
+          <div class="sm-col sm-col-6 px2 mb2 clearfix"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/books.png" width="100">
+            <div class="overflow-hidden">
+              <h2 class="mt0">Books
+              </h2>
+              <p>Find books available at UB, or request books available at other USMAI schools.</p>
+            </div>
+          </div>
+          <div class="sm-col sm-col-6 px2 mb2 clearfix"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/databases.png" width="100">
+            <div class="overflow-hidden">
+              <h2 class="mt0">Databases
+              </h2>
+              <p>Need to find scholarly, peer-reviewed articles?</p>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix mxn2">
+          <div class="sm-col sm-col-6 px2 mb2 clearfix"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/journals.png" width="100">
+            <div class="overflow-hidden">
+              <h2 class="mt0">Journals
+              </h2>
+              <p>Wondering if we have access to a specific journal (ex. New England Journal of Medicine)? Find out here.</p>
+            </div>
+          </div>
+          <div class="sm-col sm-col-6 px2 mb2 clearfix"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/reserves.png" width="100">
+            <div class="overflow-hidden">
+              <h2 class="mt0">Course Reserves
+              </h2>
+              <p>Access course textbooks available at Langsdale Library.</p>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix mxn2">
+          <div class="sm-col sm-col-6 px2 mb2 clearfix"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/ill.png" width="100">
+            <div class="overflow-hidden">
+              <h2 class="mt0">Inter Library Loan
+              </h2>
+              <p>Request books/articles from other libraries, or renew items you've borrowed.</p>
+            </div>
+          </div>
+          <div class="sm-col sm-col-6 px2 mb2 clearfix"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/knowledge-works.png" width="100">
+            <div class="overflow-hidden">
+              <h2 class="mt0">Knowledge<wbr>Works<wbr>@UB
+              </h2>
+              <p>Discover research and publications from UB faculty and graduate students.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr>
+    <section class="vh100 container px2 mb3" id="colFloatTitle">
+      <nav class="flex mt3 mb3 flex-center">
+        <h1 class="h2 mt0 mb0 mr3 italic regular">Column-based float method</h1><a class="h1" href="#top"><span class="rotate270 inline-block">➜</span></a>
+      </nav>
+      <div class="clearfix mxn2">   
+        <div class="sm-col sm-col-6 px2">
+          <div class="clearfix mb2"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/books.png" width="100">
+            <div class="overflow-hidden">
+              <h2 class="mt0">Books
+              </h2>
+              <p>Find books available at UB, or request books available at other USMAI schools.</p>
+            </div>
+          </div>
+          <div class="clearfix mb2"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/journals.png" width="100">
+            <div class="overflow-hidden">
+              <h2 class="mt0">Journals
+              </h2>
+              <p>Wondering if we have access to a specific journal (ex. New England Journal of Medicine)? Find out here.</p>
+            </div>
+          </div>
+          <div class="clearfix mb2"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/ill.png" width="100">
+            <div class="overflow-hidden">
+              <h2 class="mt0">Inter Library Loan
+              </h2>
+              <p>Request books/articles from other libraries, or renew items you've borrowed.</p>
+            </div>
+          </div>
+        </div>
+        <div class="sm-col sm-col-6 px2">
+          <div class="clearfix mb2"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/databases.png" width="100">
+            <div class="overflow-hidden">
+              <h2 class="mt0">Databases
+              </h2>
+              <p>Need to find scholarly, peer-reviewed articles?</p>
+            </div>
+          </div>
+          <div class="clearfix mb2"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/reserves.png" width="100">
+            <div class="overflow-hidden">
+              <h2 class="mt0">Course Reserves
+              </h2>
+              <p>Access course textbooks available at Langsdale Library.</p>
+            </div>
+          </div>
+          <div class="clearfix mb2"><img class="col mr2" src="http://langsdale.ubalt.edu/find-materials/uploads/images/knowledge-works.png" width="100">
+            <div class="overflow-hidden">
+              <h2 class="mt0">Knowledge<wbr>Works<wbr>@UB
+              </h2>
+              <p>Discover research and publications from UB faculty and graduate students.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr>
+    <section class="vh100 container px2 mb3" id="rowFlexTitle">
+      <nav class="flex mt3 mb3 flex-center">
+        <h1 class="h2 mt0 mb0 mr3 italic regular">Row-based flexbox method</h1><a class="h1" href="#top"><span class="rotate270 inline-block">➜</span></a>
+      </nav>
+      <div class="sm-flex flex-wrap mxn2">
+        <div class="sm-col-6 mb2 flex px2">
+          <div class="basis-100px mr2"><img src="http://langsdale.ubalt.edu/find-materials/uploads/images/books.png"></div>
+          <div class="flex flex-column">
+            <h2 class="mt0">Books
+            </h2>
+            <p>Find books available at UB, or request books available at other USMAI schools.</p>
+          </div>
+        </div>
+        <div class="sm-col-6 mb2 flex px2">
+          <div class="basis-100px mr2"><img src="http://langsdale.ubalt.edu/find-materials/uploads/images/databases.png"></div>
+          <div class="flex flex-column">
+            <h2 class="mt0">Databases
+            </h2>
+            <p>Need to find scholarly, peer-reviewed articles?</p>
+          </div>
+        </div>
+        <div class="sm-col-6 mb2 flex px2">
+          <div class="basis-100px mr2"><img src="http://langsdale.ubalt.edu/find-materials/uploads/images/journals.png"></div>
+          <div class="flex flex-column">
+            <h2 class="mt0">Journals
+            </h2>
+            <p>Wondering if we have access to a specific journal (ex. New England Journal of Medicine)? Find out here.</p>
+          </div>
+        </div>
+        <div class="sm-col-6 mb2 flex px2">
+          <div class="basis-100px mr2"><img src="http://langsdale.ubalt.edu/find-materials/uploads/images/reserves.png"></div>
+          <div class="flex flex-column">
+            <h2 class="mt0">Course Reserves
+            </h2>
+            <p>Access course textbooks available at Langsdale Library.</p>
+          </div>
+        </div>
+        <div class="sm-col-6 mb2 flex px2">
+          <div class="basis-100px mr2"><img src="http://langsdale.ubalt.edu/find-materials/uploads/images/ill.png"></div>
+          <div class="flex flex-column">
+            <h2 class="mt0">Inter Library Loan
+            </h2>
+            <p>Request books/articles from other libraries, or renew items you've borrowed.</p>
+          </div>
+        </div>
+        <div class="sm-col-6 mb2 flex px2">
+          <div class="basis-100px mr2"><img src="http://langsdale.ubalt.edu/find-materials/uploads/images/knowledge-works.png"></div>
+          <div class="flex flex-column">
+            <h2 class="mt0">Knowledge<wbr>Works<wbr>@UB
+            </h2>
+            <p>Discover research and publications from UB faculty and graduate students.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr>
+    <section class="vh100 container px2" id="colFlexTitle">
+      <nav class="flex mt3 mb3 flex-center">
+        <h1 class="h2 mt0 mb0 mr3 italic regular">Column-based flexbox method</h1><a class="h1" href="#top"><span class="rotate270 inline-block">➜</span></a>
+      </nav>
+      <div class="sm-flex flex-wrap mxn2">
+        <div class="sm-col-6 flex flex-column px2">
+          <div class="flex mb2">
+            <div class="basis-100px mr2"><img src="http://langsdale.ubalt.edu/find-materials/uploads/images/books.png"></div>
+            <div class="flex flex-column">
+              <h2 class="mt0">Books
+              </h2>
+              <p>Find books available at UB, or request books available at other USMAI schools.</p>
+            </div>
+          </div>
+          <div class="flex mb2">
+            <div class="basis-100px mr2"><img src="http://langsdale.ubalt.edu/find-materials/uploads/images/journals.png"></div>
+            <div class="flex flex-column">
+              <h2 class="mt0">Journals
+              </h2>
+              <p>Wondering if we have access to a specific journal (ex. New England Journal of Medicine)? Find out here.</p>
+            </div>
+          </div>
+          <div class="flex mb2">
+            <div class="basis-100px mr2"><img src="http://langsdale.ubalt.edu/find-materials/uploads/images/ill.png"></div>
+            <div class="flex flex-column">
+              <h2 class="mt0">Inter Library Loan
+              </h2>
+              <p>Request books/articles from other libraries, or renew items you've borrowed.</p>
+            </div>
+          </div>
+        </div>
+        <div class="sm-col-6 flex flex-column px2">
+          <div class="flex mb2">
+            <div class="basis-100px mr2"><img src="http://langsdale.ubalt.edu/find-materials/uploads/images/databases.png"></div>
+            <div class="flex flex-column">
+              <h2 class="mt0">Databases
+              </h2>
+              <p>Need to find scholarly, peer-reviewed articles?</p>
+            </div>
+          </div>
+          <div class="flex mb2">
+            <div class="basis-100px mr2"><img src="http://langsdale.ubalt.edu/find-materials/uploads/images/reserves.png"></div>
+            <div class="flex flex-column">
+              <h2 class="mt0">Course Reserves
+              </h2>
+              <p>Access course textbooks available at Langsdale Library.</p>
+            </div>
+          </div>
+          <div class="flex mb2">
+            <div class="basis-100px mr2"><img src="http://langsdale.ubalt.edu/find-materials/uploads/images/knowledge-works.png"></div>
+            <div class="flex flex-column">
+              <h2 class="mt0">Knowledge<wbr>Works<wbr>@UB
+              </h2>
+              <p>Discover research and publications from UB faculty and graduate students.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

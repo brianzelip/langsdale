@@ -1,0 +1,110 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Refactoring UB Langsdale Find Materials tiles
+    link(rel="stylesheet" href="https://npmcdn.com/basscss@7.1.1/css/basscss.min.css")
+    style.
+      * {
+        box-sizing: border-box;
+      }
+      body,
+      .vh100 {
+        min-height: 100vh;
+      }
+      .basis-100px {
+        flex: 0 0 100px;
+      }
+      .rotate270 {
+        transform: rotate(270deg);
+      }
+  body
+
+    - const rowFloatTitle = 'Row-based float method'
+    - const colFloatTitle = 'Column-based float method'
+    - const rowFlexTitle = 'Row-based flexbox method'
+    - const colFlexTitle = 'Column-based flexbox method'
+    - const sectionIDs = [ { id: 'rowFloatTitle', title: rowFloatTitle }, { id: 'colFloatTitle', title: colFloatTitle }, { id: 'rowFlexTitle', title: rowFlexTitle }, { id: 'colFlexTitle',  title: colFlexTitle } ]
+    - const books = { title: 'Books', img: 'http://langsdale.ubalt.edu/find-materials/uploads/images/books.png', text: 'Find books available at UB, or request books available at other USMAI schools.' }
+    - const databases = { title: 'Databases', img: 'http://langsdale.ubalt.edu/find-materials/uploads/images/databases.png', text: 'Need to find scholarly, peer-reviewed articles?' }
+    - const journals = { title: 'Journals', img: 'http://langsdale.ubalt.edu/find-materials/uploads/images/journals.png', text: 'Wondering if we have access to a specific journal (ex. New England Journal of Medicine)? Find out here.' }
+    - const reserves = { title: 'Course Reserves', img: 'http://langsdale.ubalt.edu/find-materials/uploads/images/reserves.png', text: 'Access course textbooks available at Langsdale Library.' }
+    - const ill = { title: 'Inter Library Loan', img: 'http://langsdale.ubalt.edu/find-materials/uploads/images/ill.png', text: 'Request books/articles from other libraries, or renew items you\'ve borrowed.' }
+    - const kw = { title: 'Knowledge<wbr>Works<wbr>@UB', img: 'http://langsdale.ubalt.edu/find-materials/uploads/images/knowledge-works.png', text: 'Discover research and publications from UB faculty and graduate students.' }
+    - const rowFloatSections = [ [books, databases], [journals, reserves], [ill, kw] ]
+    - const colFloatSections = [ [ books, journals, ill ], [ databases, reserves, kw] ]
+    - const rowFlexSections = [ books, databases, journals, reserves, ill, kw ]
+    - const colFlexSections = colFloatSections
+
+    header.container.p2#top
+      p.h2 Contents:
+      ol
+        each section in sectionIDs
+          li.h3
+            a.regular(href=`#${section.id}`)= section.title
+    hr
+    section.vh100.container.px2.mb3#rowFloatTitle
+      nav.flex.mt3.mb3.flex-center
+        h1.h2.mt0.mb0.mr3.italic.regular= rowFloatTitle
+        a.h1(href="#top")
+          span.rotate270.inline-block ➜
+      div
+        each array in rowFloatSections
+          .clearfix.mxn2
+            each section in array
+              .sm-col.sm-col-6.px2.mb2.clearfix
+                img.col.mr2(src=section.img width=100)
+                .overflow-hidden
+                  h2.mt0
+                    != section.title
+                  p= section.text
+    hr
+    section.vh100.container.px2.mb3#colFloatTitle
+      nav.flex.mt3.mb3.flex-center
+        h1.h2.mt0.mb0.mr3.italic.regular= colFloatTitle
+        a.h1(href="#top")
+          span.rotate270.inline-block ➜
+      .clearfix.mxn2    
+        each array in colFloatSections
+          .sm-col.sm-col-6.px2
+            each section in array
+              div.clearfix.mb2
+                img.col.mr2(src=section.img width=100)
+                .overflow-hidden
+                  h2.mt0
+                    != section.title
+                  p= section.text
+    hr
+    section.vh100.container.px2.mb3#rowFlexTitle
+      nav.flex.mt3.mb3.flex-center
+        h1.h2.mt0.mb0.mr3.italic.regular= rowFlexTitle
+        a.h1(href="#top")
+          span.rotate270.inline-block ➜
+      .sm-flex.flex-wrap.mxn2
+        each section in rowFlexSections
+          .sm-col-6.mb2.flex.px2
+            .basis-100px.mr2
+              img(src=section.img)
+            div.flex.flex-column
+              h2.mt0
+                != section.title
+              p= section.text
+    hr
+    section.vh100.container.px2#colFlexTitle
+      nav.flex.mt3.mb3.flex-center
+        h1.h2.mt0.mb0.mr3.italic.regular= colFlexTitle
+        a.h1(href="#top")
+          span.rotate270.inline-block ➜
+      .sm-flex.flex-wrap.mxn2
+        each array in colFlexSections
+          .sm-col-6.flex.flex-column.px2
+            each section in array
+              .flex.mb2
+                .basis-100px.mr2
+                  img(src=section.img)
+                div.flex.flex-column
+                  h2.mt0
+                    != section.title
+                  p= section.text
