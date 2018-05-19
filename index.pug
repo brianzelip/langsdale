@@ -105,8 +105,7 @@ html(lang="en")
               .row-float-column.clearfix
                 img.row-float-column__img(src=section.img width=100)
                 .row-float-column__text-container
-                  h2.row-float-column__title
-                    != section.title
+                  h2.row-float-column__title!= section.title
                   p.row-float-column__text= section.text
     hr
     section.vh100.container.px2.mb3#colFloatTitle
@@ -150,8 +149,7 @@ html(lang="en")
               .col-float-column-row.clearfix
                 img.col-float-column-row__img(src=section.img width=100)
                 .col-float-column-row__text-container
-                  h2.col-float-column-row__title
-                    != section.title
+                  h2.col-float-column-row__title!= section.title
                   p.col-float-column-row__text= section.text
     hr
     section.vh100.container.px2.mb3#rowFlexTitle
@@ -197,8 +195,7 @@ html(lang="en")
             .row-flex-item__img-container
               img.row-flex-item__img(src=section.img)
             .row-flex-item__text-container
-              h2.row-flex-item__title
-                != section.title
+              h2.row-flex-item__title!= section.title
               p.row-flex-item__text= section.text
     hr
     section.vh100.container.px2#colFlexTitle
@@ -214,6 +211,5 @@ html(lang="en")
                 .basis-100px.mr2
                   img(src=section.img)
                 div.flex.flex-column
-                  h2.mt0
-                    != section.title
+                  h2.mt0!= section.title
                   p= section.text
