@@ -1,5 +1,7 @@
 # Proof of concept refactorings for UB Langsdale Find Materials web page
 
+[https://brianzelip.github.io/langsdale](https://brianzelip.github.io/langsdale)
+
 There are four solutions provided in index.html:
 
 1.  row-based float solution
