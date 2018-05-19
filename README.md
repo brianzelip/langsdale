@@ -31,7 +31,7 @@ Use a modern Firefox or Chrome browser to see these solutions, as the uses of fl
 
 There are two types of CSS conventions on display here - BEM and atomic CSS.
 
-While I prefer to wield atomic CSS, the [BEM method](https://en.bem.info/methodology/) is closer to the "normal way of writing CSS" that the Find Materials page uses.
+While I prefer to wield atomic CSS, the [BEM method](https://en.bem.info/methodology/) is closer to the "normal way of writing CSS" that the Find Materials page uses. BEM is used here to promote the idea of user interface components with semantic class names.
 
 I kept one solution written in atomic CSS, the fourth "Column-based flexbox method", for demonstration. Basscss is the library used herein for most of the atomic css instances. The rest are original and are contained in the `<head>`'s style block.
 
