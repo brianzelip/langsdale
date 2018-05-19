@@ -7,7 +7,7 @@ There are four solutions provided in index.html:
 3.  row-based flexbox solution
 4.  column-based flexbox solution
 
-As a point of reference for what row- and column-based mean, the existing Find Materials tiles are column-based.
+As a point of reference for what row- and column-based mean here, I consider the live Find Materials page tiles to be column-based. That is, when the viewport is narrow enough, the second column collapses under the first column to create one column.
 
 The row-based solutions provide a better visual output in my opinion, because each horizontal pair (on larger devices) are the same height. The column-based approaches can't achieve this.
 
@@ -19,7 +19,7 @@ The CSS for each solution is included in a `<style>` block directly above the so
 
 ## About the CSS inside index.html
 
-### Use a modern browser!
+### Use a modern browser to view!
 
 I prototyped these solutions as quick and dirty as possible, which means that I didn't stop to add [Autoprefixer](https://github.com/postcss/autoprefixer) to the development workflow.
 
@@ -39,7 +39,7 @@ I included float solutions to demonstrate how to fix the wrapping bugs in the li
 
 There are comments in the CSS that point to the essential parts of each solution.
 
-The existing code is pretty way out/messy/hacked together in such a way that it becomes difficult to change course for the better. See especially the frequent uses of varied and irregularly large amounts of white space, and very particular positioning length values, as a means of general layout. I see this happening all over the place, not just the Find Materials tiles.
+The code currently in production is written in such a way that it becomes difficult to change course for the better. Some major code smells in this regard are the many uses of large amounts of padding and margin, and very particular positioning length values, for general layout. I see this happening all over the place, not just the Find Materials tiles.
 
 Ultimately, what's missing from the live page is a rock solid method for reusable layout patterns. This is what Flexbox and CSS Grid provide. If not using these newer CSS tools, then you want to implement some kind of float-based grid system.
 
@@ -47,7 +47,7 @@ The float-based grid system is conceptually comprised of rows and columns.
 
 Working with floats means you have to know how to work around the undesirable wrapping situations that happen. The general wisdom here is to incoporate a _clearfix_ and know when to use `overflow: hidden`.
 
-## Use `<wbr>` for long strings with no spaces
+## Use `<wbr>` for long strings with no spaces ('KnowledgeWorks@UB')
 
 These solutions use [`<wbr>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr) to break up long strings with no spaces in them, like "KnowledgeWorks@UB". This solves:
 
@@ -64,7 +64,9 @@ I used Pug here to minimize the amount of code needed to demonstrate the solutio
 
 One of the many benefits of git is that you can see the evolution of the project via the log of "commit messages". See [the log of commits for this project](https://github.com/brianzelip/langsdale/commits/master).
 
-This feature is especially useful for understanding your code well after it was written!
+This feature is especially useful for understanding what's going on in your code long after it was written!
+
+Also note that the log lists who is responsible for what changes to the code, and at exactly what point in time. Very handy for teams.
 
 ## Further resources
 
